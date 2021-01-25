@@ -26,5 +26,5 @@ jobs:
       
       - name: docker build
         run: |
-          docker build ./app -t gaurav04/flask
-          docker push gaurav04/flask
+          docker build ./app -t gaurav04/flask:{{ github.sha }}
+          docker push gaurav04/flask:${{ github.sha }}
