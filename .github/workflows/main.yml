@@ -18,6 +18,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+       
+      - name: Output Run Number
+        run: echo ${{ github.run_number }}
       
       - name: docker build
         run: |
@@ -27,7 +31,7 @@ jobs:
       - name: docker run
         run: |
           docker run -d -p 5000:5000 gaurav04/flask:${{ github.sha }}
-          sleep 5
+          sleep 3
           docker ps
     
   ecs:    
